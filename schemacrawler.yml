@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  schemacrawler:
+    image: schemacrawler/schemacrawler
+    container_name: schemacrawler
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: ./target
+        target: /home/schcrwlr/testdb
+      - type: bind
+        source: ./
+        target: /home/schcrwlr/share
+    entrypoint: /bin/bash
